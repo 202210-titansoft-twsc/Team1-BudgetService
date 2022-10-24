@@ -11,10 +11,6 @@ public class AccountingService
 
     public decimal Query(DateTime start, DateTime end)
     {
-        if (start > end)
-        {
-            return 0;
-        }
 
         var period = new Period(start, end);
 
