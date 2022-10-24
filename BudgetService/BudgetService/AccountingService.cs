@@ -37,23 +37,24 @@ public class AccountingService
             var currentBudget = GetBudget(current, budgets);
             if (currentBudget != null)
             {
-                decimal overlappingAmount;
+                int overlappingDays;
                 if (currentBudget.YearMonth == start.ToString("yyyyMM"))
                 {
-                    var overlappingDays = (currentBudget.LastDay() - start).Days + 1;
-                    overlappingAmount = overlappingDays * GetDaysAmount(current, currentBudget.Amount);
+                    overlappingDays = (currentBudget.LastDay() - start).Days + 1;
+                    // overlappingAmount = overlappingDays * GetDaysAmount(current, currentBudget.Amount);
                 }
                 else if (currentBudget.YearMonth == end.ToString("yyyyMM"))
                 {
-                    var overlappingDays = (end - currentBudget.FirstDay()).Days + 1;
-                    overlappingAmount = overlappingDays * (GetDaysAmount(current, currentBudget.Amount));
+                    overlappingDays = (end - currentBudget.FirstDay()).Days + 1;
+                    // overlappingAmount = overlappingDays * GetDaysAmount(current, currentBudget.Amount);
                 }
                 else
                 {
-                    var overlappingDays = (currentBudget.LastDay() - currentBudget.FirstDay()).Days + 1;
-                    overlappingAmount = overlappingDays * GetDaysAmount(current, currentBudget.Amount);
-                    // overlappingAmount = currentBudget.Amount;
+                    overlappingDays = (currentBudget.LastDay() - currentBudget.FirstDay()).Days + 1;
+                    // overlappingAmount = overlappingDays * GetDaysAmount(current, currentBudget.Amount);
                 }
+
+                var overlappingAmount = overlappingDays * GetDaysAmount(current, currentBudget.Amount);
 
                 totalAmount += overlappingAmount;
             }
@@ -73,7 +74,7 @@ public class AccountingService
 
     private static decimal GetDaysAmount(DateTime dateTime, int amount)
     {
-        return amount / DateTime.DaysInMonth(dateTime.Year, dateTime.Month);
+        return amount / (decimal)DateTime.DaysInMonth(dateTime.Year, dateTime.Month);
     }
 
     private static bool IsSameYearMonth(DateTime start, DateTime end)
