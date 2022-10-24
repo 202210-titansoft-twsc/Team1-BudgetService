@@ -16,16 +16,4 @@ public class AccountingService
 
         return _budgetRepo.GetAll().Sum(budget => budget.OverlappingAmount(period));
     }
-
-    private static Budget? GetBudget(DateTime dateTime, List<Budget> budgets)
-    {
-        var budget = budgets.FirstOrDefault(x => x.YearMonth == dateTime.ToString("yyyyMM"));
-
-        return budget;
-    }
-
-    private static bool IsSameYearMonth(DateTime start, DateTime end)
-    {
-        return start.ToString("yyyyMM") == end.ToString("yyyyMM");
-    }
 }
