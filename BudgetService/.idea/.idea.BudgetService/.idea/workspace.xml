@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f08c8bbc-d82b-4c98-8b6a-556c1ac9d863" name="Changes" comment="refactor: use currentBudget.LastDay() for amount of start budget">
-      <change beforePath="$PROJECT_DIR$/BudgetService/AccountingService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BudgetService/AccountingService.cs" afterDir="false" />
+    <list default="true" id="f08c8bbc-d82b-4c98-8b6a-556c1ac9d863" name="Changes" comment="refactor: use budget.FirstDay() for amount of end budget">
+      <change beforePath="$PROJECT_DIR$/BudgetService/bin/Debug/net6.0/BudgetService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BudgetService/bin/Debug/net6.0/BudgetService.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BudgetService/bin/Debug/net6.0/BudgetService.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BudgetService/bin/Debug/net6.0/BudgetService.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BudgetService/obj/Debug/net6.0/BudgetService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BudgetService/obj/Debug/net6.0/BudgetService.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BudgetService/obj/Debug/net6.0/BudgetService.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BudgetService/obj/Debug/net6.0/BudgetService.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BudgetService/obj/Debug/net6.0/ref/BudgetService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BudgetService/obj/Debug/net6.0/ref/BudgetService.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BudgetService/obj/Debug/net6.0/refint/BudgetService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BudgetService/obj/Debug/net6.0/refint/BudgetService.dll" afterDir="false" />
     </list>
     <list id="c0bfb16f-4e73-4cba-b47a-cb99c7e3f3d2" name="ignore" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -147,7 +152,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666618956450</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="use DateTime diff for overlappingDays, instead of DateTime.Day integer calculation">
+      <created>1666619053286</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1666619053286</updated>
+    </task>
+    <task id="LOCAL-00014" summary="refactor: use budget.FirstDay() for amount of end budget">
+      <created>1666619125364</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1666619125364</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +226,8 @@
     <MESSAGE value="refactor: introduce variable overlappingDays" />
     <MESSAGE value="refactor: use current, instead of start and end" />
     <MESSAGE value="refactor: use currentBudget.LastDay() for amount of start budget" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: use currentBudget.LastDay() for amount of start budget" />
+    <MESSAGE value="use DateTime diff for overlappingDays, instead of DateTime.Day integer calculation" />
+    <MESSAGE value="refactor: use budget.FirstDay() for amount of end budget" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: use budget.FirstDay() for amount of end budget" />
   </component>
 </project>
