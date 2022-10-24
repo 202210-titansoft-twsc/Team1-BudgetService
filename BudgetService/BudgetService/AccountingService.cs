@@ -40,15 +40,21 @@ public class AccountingService
                 int overlappingDays;
                 if (currentBudget.YearMonth == start.ToString("yyyyMM"))
                 {
-                    overlappingDays = (currentBudget.LastDay() - start).Days + 1;
+                    var overlappingEnd = currentBudget.LastDay();
+                    var overlappingStart = start;
+                    overlappingDays = (overlappingEnd - overlappingStart).Days + 1;
                 }
                 else if (currentBudget.YearMonth == end.ToString("yyyyMM"))
                 {
-                    overlappingDays = (end - currentBudget.FirstDay()).Days + 1;
+                    var overlappingEnd = end;
+                    var overlappingStart = currentBudget.FirstDay();
+                    overlappingDays = (overlappingEnd - overlappingStart).Days + 1;
                 }
                 else
                 {
-                    overlappingDays = (currentBudget.LastDay() - currentBudget.FirstDay()).Days + 1;
+                    var overlappingEnd = currentBudget.LastDay();
+                    var overlappingStart = currentBudget.FirstDay();
+                    overlappingDays = (overlappingEnd - overlappingStart).Days + 1;
                 }
 
                 var overlappingAmount = overlappingDays * GetDaysAmount(current, currentBudget.Amount);
