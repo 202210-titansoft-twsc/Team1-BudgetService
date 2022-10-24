@@ -1,5 +1,17 @@
 namespace BudgetService;
 
+public class Period
+{
+    public Period(DateTime start, DateTime end)
+    {
+        Start = start;
+        End = end;
+    }
+
+    public DateTime End { get; private set; }
+    public DateTime Start { get; private set; }
+}
+
 public class AccountingService
 {
     private readonly IBudgetRepo _budgetRepo;
@@ -37,7 +49,7 @@ public class AccountingService
             var currentBudget = GetBudget(current, budgets);
             if (currentBudget != null)
             {
-                var overlappingDays = GetOverlappingDays(start, end, currentBudget);
+                var overlappingDays = GetOverlappingDays(new Period(start, end), currentBudget);
 
                 var overlappingAmount = overlappingDays * GetDaysAmount(current, currentBudget.Amount);
 
@@ -62,18 +74,18 @@ public class AccountingService
         return amount / (decimal)DateTime.DaysInMonth(dateTime.Year, dateTime.Month);
     }
 
-    private static int GetOverlappingDays(DateTime start, DateTime end, Budget currentBudget)
+    private static int GetOverlappingDays(Period period, Budget currentBudget)
     {
         DateTime overlappingEnd;
         DateTime overlappingStart;
-        if (currentBudget.YearMonth == start.ToString("yyyyMM"))
+        if (currentBudget.YearMonth == period.Start.ToString("yyyyMM"))
         {
             overlappingEnd = currentBudget.LastDay();
-            overlappingStart = start;
+            overlappingStart = period.Start;
         }
-        else if (currentBudget.YearMonth == end.ToString("yyyyMM"))
+        else if (currentBudget.YearMonth == period.End.ToString("yyyyMM"))
         {
-            overlappingEnd = end;
+            overlappingEnd = period.End;
             overlappingStart = currentBudget.FirstDay();
         }
         else
@@ -82,8 +94,7 @@ public class AccountingService
             overlappingStart = currentBudget.FirstDay();
         }
 
-        var overlappingDays = (overlappingEnd - overlappingStart).Days + 1;
-        return overlappingDays;
+        return (overlappingEnd - overlappingStart).Days + 1;
     }
 
     private static bool IsSameYearMonth(DateTime start, DateTime end)
