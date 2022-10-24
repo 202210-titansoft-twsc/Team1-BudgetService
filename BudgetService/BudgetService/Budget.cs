@@ -21,4 +21,10 @@ public class Budget
     {
         return new Period(FirstDay(), LastDay());
     }
+
+    public decimal GetDaysAmount()
+    {
+        DateTime dateTime = FirstDay();
+        return Amount / (decimal)DateTime.DaysInMonth(dateTime.Year, dateTime.Month);
+    }
 }
