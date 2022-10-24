@@ -32,8 +32,8 @@ public class AccountingService
             var currentBudget = GetBudget(current, budgets);
             if (currentBudget.YearMonth == start.ToString("yyyyMM"))
             {
-                var startBudget = GetBudget(start, budgets);
-                var amountOfStart = (DateTime.DaysInMonth(start.Year, start.Month) - start.Day + 1) * GetDaysAmount(start, startBudget.Amount);
+                // var currentBudget = GetBudget(start, budgets);
+                var amountOfStart = (DateTime.DaysInMonth(start.Year, start.Month) - start.Day + 1) * GetDaysAmount(start, currentBudget.Amount);
                 totalAmount += amountOfStart;
             }
             else if (currentBudget.YearMonth == end.ToString("yyyyMM"))
