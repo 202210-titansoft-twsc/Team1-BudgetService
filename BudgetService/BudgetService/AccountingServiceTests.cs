@@ -1,5 +1,9 @@
+#region
+
 using FluentAssertions;
 using NSubstitute;
+
+#endregion
 
 namespace BudgetService;
 
@@ -20,13 +24,13 @@ public class AccountingServiceTests
     public void one_day()
     {
         GivenAllBudgets(new List<Budget>()
-        {
-            new Budget()
-            {
-                YearMonth = "202210",
-                Amount = 31000
-            }
-        });
+                        {
+                            new Budget()
+                            {
+                                YearMonth = "202210",
+                                Amount = 31000
+                            }
+                        });
 
         var totalAmount = WhenQuery(new DateTime(2022, 10, 15), new DateTime(2022, 10, 15));
 
@@ -37,13 +41,13 @@ public class AccountingServiceTests
     public void two_days_in_same_month_with_31k()
     {
         GivenAllBudgets(new List<Budget>()
-        {
-            new Budget()
-            {
-                YearMonth = "202210",
-                Amount = 31000
-            }
-        });
+                        {
+                            new Budget()
+                            {
+                                YearMonth = "202210",
+                                Amount = 31000
+                            }
+                        });
 
         var totalAmount = WhenQuery(new DateTime(2022, 10, 15), new DateTime(2022, 10, 16));
 
@@ -54,13 +58,13 @@ public class AccountingServiceTests
     public void full_month_with_31k()
     {
         GivenAllBudgets(new List<Budget>()
-        {
-            new Budget()
-            {
-                YearMonth = "202210",
-                Amount = 31000
-            }
-        });
+                        {
+                            new Budget()
+                            {
+                                YearMonth = "202210",
+                                Amount = 31000
+                            }
+                        });
 
         var totalAmount = WhenQuery(new DateTime(2022, 10, 1), new DateTime(2022, 10, 31));
 
@@ -71,18 +75,18 @@ public class AccountingServiceTests
     public void cross_month_with_31k_in_oct_3k_in_nov()
     {
         GivenAllBudgets(new List<Budget>()
-        {
-            new Budget()
-            {
-                YearMonth = "202210",
-                Amount = 31000
-            },
-            new Budget()
-            {
-                YearMonth = "202211",
-                Amount = 3000
-            },
-        });
+                        {
+                            new Budget()
+                            {
+                                YearMonth = "202210",
+                                Amount = 31000
+                            },
+                            new Budget()
+                            {
+                                YearMonth = "202211",
+                                Amount = 3000
+                            },
+                        });
 
         var totalAmount = WhenQuery(new DateTime(2022, 10, 31), new DateTime(2022, 11, 2));
 
@@ -93,23 +97,23 @@ public class AccountingServiceTests
     public void cross_month_with_31k_in_oct_3k_in_nov_31k_in_dec()
     {
         GivenAllBudgets(new List<Budget>()
-        {
-            new Budget()
-            {
-                YearMonth = "202210",
-                Amount = 31000
-            },
-            new Budget()
-            {
-                YearMonth = "202211",
-                Amount = 3000
-            },
-            new Budget()
-            {
-                YearMonth = "202212",
-                Amount = 31000
-            },
-        });
+                        {
+                            new Budget()
+                            {
+                                YearMonth = "202210",
+                                Amount = 31000
+                            },
+                            new Budget()
+                            {
+                                YearMonth = "202211",
+                                Amount = 3000
+                            },
+                            new Budget()
+                            {
+                                YearMonth = "202212",
+                                Amount = 31000
+                            },
+                        });
 
         var totalAmount = WhenQuery(new DateTime(2022, 10, 30), new DateTime(2022, 12, 5));
 
@@ -120,23 +124,23 @@ public class AccountingServiceTests
     public void cross_month_with_31k_in_oct_3k_in_nov_31k_in_dec_during_oct_5_dec_10()
     {
         GivenAllBudgets(new List<Budget>()
-        {
-            new Budget()
-            {
-                YearMonth = "202210",
-                Amount = 31000
-            },
-            new Budget()
-            {
-                YearMonth = "202211",
-                Amount = 3000
-            },
-            new Budget()
-            {
-                YearMonth = "202212",
-                Amount = 31000
-            },
-        });
+                        {
+                            new Budget()
+                            {
+                                YearMonth = "202210",
+                                Amount = 31000
+                            },
+                            new Budget()
+                            {
+                                YearMonth = "202211",
+                                Amount = 3000
+                            },
+                            new Budget()
+                            {
+                                YearMonth = "202212",
+                                Amount = 31000
+                            },
+                        });
 
         var totalAmount = WhenQuery(new DateTime(2022, 10, 5), new DateTime(2022, 12, 10));
 
@@ -144,31 +148,58 @@ public class AccountingServiceTests
     }
 
     [Test]
+    public void cross_month_when_middle_no_budget()
+    {
+        GivenAllBudgets(new List<Budget>()
+                        {
+                            new Budget()
+                            {
+                                YearMonth = "202210",
+                                Amount = 31000
+                            },
+                            // new Budget()
+                            // {
+                            //     YearMonth = "202211",
+                            //     Amount = 3000
+                            // },
+                            new Budget()
+                            {
+                                YearMonth = "202212",
+                                Amount = 31000
+                            },
+                        });
+
+        var totalAmount = WhenQuery(new DateTime(2022, 10, 5), new DateTime(2022, 12, 10));
+
+        totalAmount.Should().Be(27000 + 10000);
+    }
+
+    [Test]
     public void cross_month_with_3k_in_sep_31k_in_oct_3k_in_nov_31k_in_dec_during_sep_30_dec_2()
     {
         GivenAllBudgets(new List<Budget>()
-        {
-            new Budget
-            {
-                YearMonth = "202209",
-                Amount = 3000
-            },
-            new Budget()
-            {
-                YearMonth = "202210",
-                Amount = 31000
-            },
-            new Budget()
-            {
-                YearMonth = "202211",
-                Amount = 3000
-            },
-            new Budget()
-            {
-                YearMonth = "202212",
-                Amount = 31000
-            },
-        });
+                        {
+                            new Budget
+                            {
+                                YearMonth = "202209",
+                                Amount = 3000
+                            },
+                            new Budget()
+                            {
+                                YearMonth = "202210",
+                                Amount = 31000
+                            },
+                            new Budget()
+                            {
+                                YearMonth = "202211",
+                                Amount = 3000
+                            },
+                            new Budget()
+                            {
+                                YearMonth = "202212",
+                                Amount = 31000
+                            },
+                        });
 
         var totalAmount = WhenQuery(new DateTime(2022, 9, 30), new DateTime(2022, 12, 2));
 
@@ -192,9 +223,9 @@ public class AccountingServiceTests
 
         var totalAmount = WhenQuery(new DateTime(2022, 10, 16), new DateTime(2022, 10, 16));
 
-        totalAmount.Should().Be(0); 
+        totalAmount.Should().Be(0);
     }
-    
+
     private decimal WhenQuery(DateTime startDate, DateTime endDate)
     {
         var totalAmount = _accountingService.Query(startDate, endDate);
