@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f08c8bbc-d82b-4c98-8b6a-556c1ac9d863" name="Changes" comment="rename to totalAmount() and clean up">
+    <list default="true" id="f08c8bbc-d82b-4c98-8b6a-556c1ac9d863" name="Changes" comment="refactor: rename overlappingAmount">
       <change beforePath="$PROJECT_DIR$/BudgetService/AccountingService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BudgetService/AccountingService.cs" afterDir="false" />
     </list>
-    <list id="c0bfb16f-4e73-4cba-b47a-cb99c7e3f3d2" name="ignore" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BudgetService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BudgetService/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list id="c0bfb16f-4e73-4cba-b47a-cb99c7e3f3d2" name="ignore" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +84,35 @@
       <option name="project" value="LOCAL" />
       <updated>1666616857185</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="move amountOfEnd into while loop">
+      <created>1666617611575</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666617611575</updated>
+    </task>
+    <task id="LOCAL-00005" summary="refactor: rename to currentBudget for amountOfStart">
+      <created>1666617649798</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666617649798</updated>
+    </task>
+    <task id="LOCAL-00006" summary="use currentBudget for amountOfEnd">
+      <created>1666617674925</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666617674925</updated>
+    </task>
+    <task id="LOCAL-00007" summary="refactor: rename overlappingAmount">
+      <created>1666617699887</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1666617699887</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,6 +163,10 @@
     <MESSAGE value="add gitignore" />
     <MESSAGE value="move startBudget into while loop" />
     <MESSAGE value="rename to totalAmount() and clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename to totalAmount() and clean up" />
+    <MESSAGE value="move amountOfEnd into while loop" />
+    <MESSAGE value="refactor: rename to currentBudget for amountOfStart" />
+    <MESSAGE value="use currentBudget for amountOfEnd" />
+    <MESSAGE value="refactor: rename overlappingAmount" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: rename overlappingAmount" />
   </component>
 </project>

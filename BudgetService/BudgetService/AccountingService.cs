@@ -42,7 +42,8 @@ public class AccountingService
             }
             else
             {
-                totalAmount += currentBudget.Amount;
+                var overlappingAmount = currentBudget.Amount;
+                totalAmount += overlappingAmount;
             }
 
             current = current.AddMonths(1);
