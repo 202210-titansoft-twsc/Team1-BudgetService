@@ -38,7 +38,7 @@ public class AccountingService
             var currentBudget = GetBudget(current, budgets);
             if (currentBudget != null)
             {
-                var overlappingDays = period.GetOverlappingDays(CreatePeriod(currentBudget));
+                var overlappingDays = period.GetOverlappingDays(currentBudget.CreatePeriod());
 
                 var overlappingAmount = overlappingDays * GetDaysAmount(current, currentBudget.Amount);
 
@@ -49,11 +49,6 @@ public class AccountingService
         }
 
         return totalAmount;
-    }
-
-    private static Period CreatePeriod(Budget currentBudget)
-    {
-        return new Period(currentBudget.FirstDay(), currentBudget.LastDay());
     }
 
     private static Budget? GetBudget(DateTime dateTime, List<Budget> budgets)
