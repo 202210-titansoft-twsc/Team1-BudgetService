@@ -12,8 +12,7 @@ public class Budget
 
     public decimal DailyAmount()
     {
-        DateTime dateTime = FirstDay();
-        return Amount / (decimal)DateTime.DaysInMonth(dateTime.Year, dateTime.Month);
+        return Amount / (decimal)Days();
     }
 
     public DateTime FirstDay()
