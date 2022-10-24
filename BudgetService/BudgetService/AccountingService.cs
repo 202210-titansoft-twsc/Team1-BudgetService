@@ -37,25 +37,7 @@ public class AccountingService
             var currentBudget = GetBudget(current, budgets);
             if (currentBudget != null)
             {
-                DateTime overlappingEnd;
-                DateTime overlappingStart;
-                if (currentBudget.YearMonth == start.ToString("yyyyMM"))
-                {
-                    overlappingEnd = currentBudget.LastDay();
-                    overlappingStart = start;
-                }
-                else if (currentBudget.YearMonth == end.ToString("yyyyMM"))
-                {
-                    overlappingEnd = end;
-                    overlappingStart = currentBudget.FirstDay();
-                }
-                else
-                {
-                    overlappingEnd = currentBudget.LastDay();
-                    overlappingStart = currentBudget.FirstDay();
-                }
-
-                var overlappingDays = (overlappingEnd - overlappingStart).Days + 1;
+                var overlappingDays = GetOverlappingDays(start, end, currentBudget);
 
                 var overlappingAmount = overlappingDays * GetDaysAmount(current, currentBudget.Amount);
 
@@ -78,6 +60,30 @@ public class AccountingService
     private static decimal GetDaysAmount(DateTime dateTime, int amount)
     {
         return amount / (decimal)DateTime.DaysInMonth(dateTime.Year, dateTime.Month);
+    }
+
+    private static int GetOverlappingDays(DateTime start, DateTime end, Budget currentBudget)
+    {
+        DateTime overlappingEnd;
+        DateTime overlappingStart;
+        if (currentBudget.YearMonth == start.ToString("yyyyMM"))
+        {
+            overlappingEnd = currentBudget.LastDay();
+            overlappingStart = start;
+        }
+        else if (currentBudget.YearMonth == end.ToString("yyyyMM"))
+        {
+            overlappingEnd = end;
+            overlappingStart = currentBudget.FirstDay();
+        }
+        else
+        {
+            overlappingEnd = currentBudget.LastDay();
+            overlappingStart = currentBudget.FirstDay();
+        }
+
+        var overlappingDays = (overlappingEnd - overlappingStart).Days + 1;
+        return overlappingDays;
     }
 
     private static bool IsSameYearMonth(DateTime start, DateTime end)
