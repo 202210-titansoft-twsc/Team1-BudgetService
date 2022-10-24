@@ -40,7 +40,7 @@ public class AccountingService
             {
                 var overlappingDays = period.GetOverlappingDays(currentBudget.CreatePeriod());
 
-                var overlappingAmount = overlappingDays * currentBudget.GetDaysAmount();
+                var overlappingAmount = overlappingDays * currentBudget.DailyAmount();
 
                 totalAmount += overlappingAmount;
             }
