@@ -10,6 +10,29 @@ public class Period
 
     public DateTime End { get; private set; }
     public DateTime Start { get; private set; }
+
+    public int GetOverlappingDays(Budget currentBudget)
+    {
+        DateTime overlappingEnd;
+        DateTime overlappingStart;
+        if (currentBudget.YearMonth == Start.ToString("yyyyMM"))
+        {
+            overlappingEnd = currentBudget.LastDay();
+            overlappingStart = Start;
+        }
+        else if (currentBudget.YearMonth == End.ToString("yyyyMM"))
+        {
+            overlappingEnd = End;
+            overlappingStart = currentBudget.FirstDay();
+        }
+        else
+        {
+            overlappingEnd = currentBudget.LastDay();
+            overlappingStart = currentBudget.FirstDay();
+        }
+
+        return (overlappingEnd - overlappingStart).Days + 1;
+    }
 }
 
 public class AccountingService
@@ -49,7 +72,7 @@ public class AccountingService
             var currentBudget = GetBudget(current, budgets);
             if (currentBudget != null)
             {
-                var overlappingDays = GetOverlappingDays(new Period(start, end), currentBudget);
+                var overlappingDays = new Period(start, end).GetOverlappingDays(currentBudget);
 
                 var overlappingAmount = overlappingDays * GetDaysAmount(current, currentBudget.Amount);
 
@@ -72,29 +95,6 @@ public class AccountingService
     private static decimal GetDaysAmount(DateTime dateTime, int amount)
     {
         return amount / (decimal)DateTime.DaysInMonth(dateTime.Year, dateTime.Month);
-    }
-
-    private static int GetOverlappingDays(Period period, Budget currentBudget)
-    {
-        DateTime overlappingEnd;
-        DateTime overlappingStart;
-        if (currentBudget.YearMonth == period.Start.ToString("yyyyMM"))
-        {
-            overlappingEnd = currentBudget.LastDay();
-            overlappingStart = period.Start;
-        }
-        else if (currentBudget.YearMonth == period.End.ToString("yyyyMM"))
-        {
-            overlappingEnd = period.End;
-            overlappingStart = currentBudget.FirstDay();
-        }
-        else
-        {
-            overlappingEnd = currentBudget.LastDay();
-            overlappingStart = currentBudget.FirstDay();
-        }
-
-        return (overlappingEnd - overlappingStart).Days + 1;
     }
 
     private static bool IsSameYearMonth(DateTime start, DateTime end)
