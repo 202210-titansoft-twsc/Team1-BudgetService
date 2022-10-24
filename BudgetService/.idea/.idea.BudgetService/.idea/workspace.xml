@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f08c8bbc-d82b-4c98-8b6a-556c1ac9d863" name="Changes" comment="clean up">
+    <list default="true" id="f08c8bbc-d82b-4c98-8b6a-556c1ac9d863" name="Changes" comment="use another for lastDay and firstDay, instead of budget">
       <change beforePath="$PROJECT_DIR$/BudgetService/Period.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BudgetService/Period.cs" afterDir="false" />
     </list>
     <list id="c0bfb16f-4e73-4cba-b47a-cb99c7e3f3d2" name="ignore" comment="" />
@@ -231,7 +231,49 @@
       <option name="project" value="LOCAL" />
       <updated>1666620330704</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="use Period overlapping domain logic for overlappingEnd">
+      <created>1666620388368</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620388368</updated>
+    </task>
+    <task id="LOCAL-00026" summary="use Period overlapping domain logic for overlappingStart">
+      <created>1666620428798</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620428798</updated>
+    </task>
+    <task id="LOCAL-00027" summary="clean up">
+      <created>1666620464021</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620464021</updated>
+    </task>
+    <task id="LOCAL-00028" summary="introduce temp variables: lastDay and firstDay">
+      <created>1666620505108</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620505108</updated>
+    </task>
+    <task id="LOCAL-00029" summary="add variable another from budget.FirstDay() and budget.LastDay()">
+      <created>1666620624232</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620624232</updated>
+    </task>
+    <task id="LOCAL-00030" summary="use another for lastDay and firstDay, instead of budget">
+      <created>1666620666160</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620666160</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,7 +321,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="add gitignore" />
     <MESSAGE value="move startBudget into while loop" />
     <MESSAGE value="rename to totalAmount() and clean up" />
     <MESSAGE value="move amountOfEnd into while loop" />
@@ -299,7 +340,12 @@
     <MESSAGE value="extract method: GetOverlappingDays()" />
     <MESSAGE value="refactor: transform parameter object &quot;Period&quot; class from start and end parameters" />
     <MESSAGE value="refactor: make method non-static of GetOverlappingDays() and move to Period class, to remove smell &quot;feature envy&quot;" />
+    <MESSAGE value="use Period overlapping domain logic for overlappingEnd" />
+    <MESSAGE value="use Period overlapping domain logic for overlappingStart" />
     <MESSAGE value="clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up" />
+    <MESSAGE value="introduce temp variables: lastDay and firstDay" />
+    <MESSAGE value="add variable another from budget.FirstDay() and budget.LastDay()" />
+    <MESSAGE value="use another for lastDay and firstDay, instead of budget" />
+    <option name="LAST_COMMIT_MESSAGE" value="use another for lastDay and firstDay, instead of budget" />
   </component>
 </project>
