@@ -25,12 +25,9 @@ public class AccountingService
             return queryDays * (budget.Amount / DateTime.DaysInMonth(start.Year, start.Month));
         }
 
-        var endDateBudget = GetBudget(end, budgets);
-        var amountOfEnd = end.Day * (GetDaysAmount(end, endDateBudget.Amount));
-
         var current = start;
         var totalAmount = 0m;
-        while (current < new DateTime(end.Year, end.Month, 1))
+        while (current < new DateTime(end.Year, end.Month, 1).AddMonths(1))
         {
             var currentBudget = GetBudget(current, budgets);
             if (currentBudget.YearMonth == start.ToString("yyyyMM"))
@@ -38,6 +35,12 @@ public class AccountingService
                 var startBudget = GetBudget(start, budgets);
                 var amountOfStart = (DateTime.DaysInMonth(start.Year, start.Month) - start.Day + 1) * GetDaysAmount(start, startBudget.Amount);
                 totalAmount += amountOfStart;
+            }
+            else if (currentBudget.YearMonth == end.ToString("yyyyMM"))
+            {
+                var endDateBudget = GetBudget(end, budgets);
+                var amountOfEnd = end.Day * (GetDaysAmount(end, endDateBudget.Amount));
+                totalAmount += amountOfEnd;
             }
             else
             {
@@ -47,7 +50,7 @@ public class AccountingService
             current = current.AddMonths(1);
         }
 
-        return totalAmount + amountOfEnd;
+        return totalAmount;
     }
 
     private static Budget? GetBudget(DateTime dateTime, List<Budget> budgets)
