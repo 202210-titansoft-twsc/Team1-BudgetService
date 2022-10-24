@@ -38,9 +38,7 @@ public class AccountingService
             var currentBudget = GetBudget(current, budgets);
             if (currentBudget != null)
             {
-                var overlappingDays = period.GetOverlappingDays(currentBudget.CreatePeriod());
-
-                var overlappingAmount = overlappingDays * currentBudget.DailyAmount();
+                var overlappingAmount = OverlappingAmount(period, currentBudget);
 
                 totalAmount += overlappingAmount;
             }
@@ -61,5 +59,10 @@ public class AccountingService
     private static bool IsSameYearMonth(DateTime start, DateTime end)
     {
         return start.ToString("yyyyMM") == end.ToString("yyyyMM");
+    }
+
+    private static decimal OverlappingAmount(Period period, Budget currentBudget)
+    {
+        return period.GetOverlappingDays(currentBudget.CreatePeriod()) * currentBudget.DailyAmount();
     }
 }
