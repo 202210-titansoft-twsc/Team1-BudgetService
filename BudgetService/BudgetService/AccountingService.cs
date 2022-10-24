@@ -25,23 +25,34 @@ public class AccountingService
             return queryDays * (budget.Amount / DateTime.DaysInMonth(start.Year, start.Month));
         }
 
-        var startBudget = GetBudget(start, budgets);
-        var amountOfStart = (DateTime.DaysInMonth(start.Year, start.Month) - start.Day + 1) * GetDaysAmount(start, startBudget.Amount);
+        // var startBudget = GetBudget(start, budgets);
+        // var amountOfStart = (DateTime.DaysInMonth(start.Year, start.Month) - start.Day + 1) * GetDaysAmount(start, startBudget.Amount);
 
         var endDateBudget = GetBudget(end, budgets);
         var amountOfEnd = end.Day * (GetDaysAmount(end, endDateBudget.Amount));
 
-        var current = start.AddMonths(1);
-        var totalMiddleAmount = 0;
+        var current = start;
+        // var current = start.AddMonths(1);
+        var totalMiddleAmount = 0m;
         while (current < new DateTime(end.Year, end.Month, 1))
         {
             var currentBudget = GetBudget(current, budgets);
-            // var currentBudget = budgets.FirstOrDefault(x => x.YearMonth == current.ToString( "yyyyMM"));
-            totalMiddleAmount += currentBudget.Amount;
+            if (currentBudget.YearMonth == start.ToString("yyyyMM"))
+            {
+                var startBudget = GetBudget(start, budgets);
+                var amountOfStart = (DateTime.DaysInMonth(start.Year, start.Month) - start.Day + 1) * GetDaysAmount(start, startBudget.Amount);
+                totalMiddleAmount += amountOfStart;
+            }
+            else
+            {
+                totalMiddleAmount += currentBudget.Amount;
+            }
+
             current = current.AddMonths(1);
         }
 
-        return amountOfStart + totalMiddleAmount + amountOfEnd;
+        return totalMiddleAmount + amountOfEnd;
+        // return amountOfStart + totalMiddleAmount + amountOfEnd;
     }
 
     private static Budget? GetBudget(DateTime dateTime, List<Budget> budgets)
