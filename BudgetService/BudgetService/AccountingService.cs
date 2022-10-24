@@ -30,27 +30,9 @@ public class AccountingService
             return queryDays * (budget.Amount / DateTime.DaysInMonth(start.Year, start.Month));
         }
 
-        var totalAmount = 0m;
         var period = new Period(start, end);
-        foreach (var budget in budgets)
-        {
-            totalAmount += budget.OverlappingAmount(period);
-        }
 
-        return totalAmount;
-        var current = start;
-        while (current < new DateTime(end.Year, end.Month, 1).AddMonths(1))
-        {
-            var currentBudget = GetBudget(current, budgets);
-            if (currentBudget != null)
-            {
-                totalAmount += currentBudget.OverlappingAmount(period);
-            }
-
-            current = current.AddMonths(1);
-        }
-
-        return totalAmount;
+        return budgets.Sum(budget => budget.OverlappingAmount(period));
     }
 
     private static Budget? GetBudget(DateTime dateTime, List<Budget> budgets)
