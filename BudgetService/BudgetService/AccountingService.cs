@@ -33,11 +33,13 @@ public class AccountingService
             decimal overlappingAmount;
             if (currentBudget.YearMonth == start.ToString("yyyyMM"))
             {
-                overlappingAmount = (DateTime.DaysInMonth(start.Year, start.Month) - start.Day + 1) * GetDaysAmount(start, currentBudget.Amount);
+                var overlappingDays = (DateTime.DaysInMonth(start.Year, start.Month) - start.Day + 1);
+                overlappingAmount = overlappingDays * GetDaysAmount(start, currentBudget.Amount);
             }
             else if (currentBudget.YearMonth == end.ToString("yyyyMM"))
             {
-                overlappingAmount = end.Day * (GetDaysAmount(end, currentBudget.Amount));
+                var overlappingDays = end.Day;
+                overlappingAmount = overlappingDays * (GetDaysAmount(end, currentBudget.Amount));
             }
             else
             {
