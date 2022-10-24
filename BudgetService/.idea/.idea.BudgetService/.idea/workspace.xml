@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f08c8bbc-d82b-4c98-8b6a-556c1ac9d863" name="Changes" comment="use another for lastDay and firstDay, instead of budget">
-      <change beforePath="$PROJECT_DIR$/BudgetService/Period.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BudgetService/Period.cs" afterDir="false" />
+    <list default="true" id="f08c8bbc-d82b-4c98-8b6a-556c1ac9d863" name="Changes" comment="rename to DailyAmount()">
+      <change beforePath="$PROJECT_DIR$/BudgetService/Budget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BudgetService/Budget.cs" afterDir="false" />
     </list>
     <list id="c0bfb16f-4e73-4cba-b47a-cb99c7e3f3d2" name="ignore" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -273,7 +273,70 @@
       <option name="project" value="LOCAL" />
       <updated>1666620666160</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="inline temp variables: firstDay and lastDay">
+      <created>1666620686112</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620686112</updated>
+    </task>
+    <task id="LOCAL-00032" summary="introduce parameter: another Period and remove unused parameter: budget, to remove smell &quot;abstraction distraction&quot;">
+      <created>1666620738762</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620738762</updated>
+    </task>
+    <task id="LOCAL-00033" summary="introduce variable: period and move outer scope">
+      <created>1666620771058</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620771058</updated>
+    </task>
+    <task id="LOCAL-00034" summary="extract method: CreatePeriod()">
+      <created>1666620795151</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620795151</updated>
+    </task>
+    <task id="LOCAL-00035" summary="make method non-static of CreatePeriod() and move to Budget class">
+      <created>1666620828631</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620828631</updated>
+    </task>
+    <task id="LOCAL-00036" summary="use currentBudget.FirstDay(), instead of current">
+      <created>1666620870690</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620870690</updated>
+    </task>
+    <task id="LOCAL-00037" summary="refactor: inline parameters of GetDaysAmount() to remove smell &quot;primitive obsession&quot;">
+      <created>1666620916984</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620916984</updated>
+    </task>
+    <task id="LOCAL-00038" summary="make method non-static of GetDaysAmount() and move to Budget class">
+      <created>1666620943712</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620943712</updated>
+    </task>
+    <task id="LOCAL-00039" summary="rename to DailyAmount()">
+      <created>1666620962971</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620962971</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,15 +384,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="move startBudget into while loop" />
-    <MESSAGE value="rename to totalAmount() and clean up" />
-    <MESSAGE value="move amountOfEnd into while loop" />
-    <MESSAGE value="refactor: rename to currentBudget for amountOfStart" />
-    <MESSAGE value="use currentBudget for amountOfEnd" />
-    <MESSAGE value="refactor: rename overlappingAmount" />
-    <MESSAGE value="introduce variable: overlappingAmount" />
-    <MESSAGE value="refactor: move duplicated code out of if/else block" />
-    <MESSAGE value="refactor: introduce variable overlappingDays" />
     <MESSAGE value="refactor: use current, instead of start and end" />
     <MESSAGE value="refactor: use currentBudget.LastDay() for amount of start budget" />
     <MESSAGE value="use DateTime diff for overlappingDays, instead of DateTime.Day integer calculation" />
@@ -346,6 +400,15 @@
     <MESSAGE value="introduce temp variables: lastDay and firstDay" />
     <MESSAGE value="add variable another from budget.FirstDay() and budget.LastDay()" />
     <MESSAGE value="use another for lastDay and firstDay, instead of budget" />
-    <option name="LAST_COMMIT_MESSAGE" value="use another for lastDay and firstDay, instead of budget" />
+    <MESSAGE value="inline temp variables: firstDay and lastDay" />
+    <MESSAGE value="introduce parameter: another Period and remove unused parameter: budget, to remove smell &quot;abstraction distraction&quot;" />
+    <MESSAGE value="introduce variable: period and move outer scope" />
+    <MESSAGE value="extract method: CreatePeriod()" />
+    <MESSAGE value="make method non-static of CreatePeriod() and move to Budget class" />
+    <MESSAGE value="use currentBudget.FirstDay(), instead of current" />
+    <MESSAGE value="refactor: inline parameters of GetDaysAmount() to remove smell &quot;primitive obsession&quot;" />
+    <MESSAGE value="make method non-static of GetDaysAmount() and move to Budget class" />
+    <MESSAGE value="rename to DailyAmount()" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename to DailyAmount()" />
   </component>
 </project>

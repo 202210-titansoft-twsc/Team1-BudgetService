@@ -23,8 +23,11 @@ public class Budget
 
     public DateTime LastDay()
     {
-        var firstDay = DateTime.ParseExact(YearMonth, "yyyyMM", null);
-        var daysInMonth = DateTime.DaysInMonth(firstDay.Year, firstDay.Month);
-        return new DateTime(firstDay.Year, firstDay.Month, daysInMonth);
+        return new DateTime(FirstDay().Year, FirstDay().Month, Days());
+    }
+
+    private int Days()
+    {
+        return DateTime.DaysInMonth(FirstDay().Year, FirstDay().Month);
     }
 }
