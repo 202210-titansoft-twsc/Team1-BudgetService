@@ -29,4 +29,9 @@ public class Budget
     {
         return DateTime.DaysInMonth(FirstDay().Year, FirstDay().Month);
     }
+
+    public decimal OverlappingAmount(Period period)
+    {
+        return period.GetOverlappingDays(CreatePeriod()) * DailyAmount();
+    }
 }
