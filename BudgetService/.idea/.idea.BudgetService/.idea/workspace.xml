@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f08c8bbc-d82b-4c98-8b6a-556c1ac9d863" name="Changes" comment="refactor: transform parameter object &quot;Period&quot; class from start and end parameters">
-      <change beforePath="$PROJECT_DIR$/BudgetService/AccountingService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BudgetService/AccountingService.cs" afterDir="false" />
+    <list default="true" id="f08c8bbc-d82b-4c98-8b6a-556c1ac9d863" name="Changes" comment="clean up">
+      <change beforePath="$PROJECT_DIR$/BudgetService/Period.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BudgetService/Period.cs" afterDir="false" />
     </list>
     <list id="c0bfb16f-4e73-4cba-b47a-cb99c7e3f3d2" name="ignore" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +217,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666620018032</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="refactor: make method non-static of GetOverlappingDays() and move to Period class, to remove smell &quot;feature envy&quot;">
+      <created>1666620283274</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620283274</updated>
+    </task>
+    <task id="LOCAL-00024" summary="clean up">
+      <created>1666620330704</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1666620330704</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,9 +296,10 @@
     <MESSAGE value="use same calculation formula for middle budgets" />
     <MESSAGE value="introduce variables: overlappingEnd and overlappingStart" />
     <MESSAGE value="move duplicated code out of if/else block" />
-    <MESSAGE value="clean up" />
     <MESSAGE value="extract method: GetOverlappingDays()" />
     <MESSAGE value="refactor: transform parameter object &quot;Period&quot; class from start and end parameters" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: transform parameter object &quot;Period&quot; class from start and end parameters" />
+    <MESSAGE value="refactor: make method non-static of GetOverlappingDays() and move to Period class, to remove smell &quot;feature envy&quot;" />
+    <MESSAGE value="clean up" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean up" />
   </component>
 </project>
