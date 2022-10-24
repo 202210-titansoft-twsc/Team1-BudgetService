@@ -4138,19 +4138,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\angela.wang12\\.nuget\\packages\\": {}
+    "C:\\Users\\joey_\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\91\\BudgetService\\BudgetService\\BudgetService.csproj",
+      "projectUniqueName": "C:\\Users\\joey_\\RiderProjects\\202210-tdd-twsc\\Team1-BudgetService\\BudgetService\\BudgetService\\BudgetService.csproj",
       "projectName": "BudgetService",
-      "projectPath": "D:\\91\\BudgetService\\BudgetService\\BudgetService.csproj",
-      "packagesPath": "C:\\Users\\angela.wang12\\.nuget\\packages\\",
-      "outputPath": "D:\\91\\BudgetService\\BudgetService\\obj\\",
+      "projectPath": "C:\\Users\\joey_\\RiderProjects\\202210-tdd-twsc\\Team1-BudgetService\\BudgetService\\BudgetService\\BudgetService.csproj",
+      "packagesPath": "C:\\Users\\joey_\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\joey_\\RiderProjects\\202210-tdd-twsc\\Team1-BudgetService\\BudgetService\\BudgetService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\angela.wang12\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\joey_\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4158,7 +4158,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://nuget.coreop.net/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4212,7 +4211,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -4221,7 +4221,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.305\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
