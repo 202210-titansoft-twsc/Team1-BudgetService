@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f08c8bbc-d82b-4c98-8b6a-556c1ac9d863" name="Changes" comment="refactor: rename overlappingAmount">
+    <list default="true" id="f08c8bbc-d82b-4c98-8b6a-556c1ac9d863" name="Changes" comment="introduce variable: overlappingAmount">
       <change beforePath="$PROJECT_DIR$/BudgetService/AccountingService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BudgetService/AccountingService.cs" afterDir="false" />
     </list>
     <list id="c0bfb16f-4e73-4cba-b47a-cb99c7e3f3d2" name="ignore" comment="" />
@@ -112,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666617699887</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="introduce variable: overlappingAmount">
+      <created>1666618211982</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1666618211982</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +174,7 @@
     <MESSAGE value="refactor: rename to currentBudget for amountOfStart" />
     <MESSAGE value="use currentBudget for amountOfEnd" />
     <MESSAGE value="refactor: rename overlappingAmount" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: rename overlappingAmount" />
+    <MESSAGE value="introduce variable: overlappingAmount" />
+    <option name="LAST_COMMIT_MESSAGE" value="introduce variable: overlappingAmount" />
   </component>
 </project>

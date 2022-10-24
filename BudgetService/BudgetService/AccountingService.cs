@@ -30,21 +30,21 @@ public class AccountingService
         while (current < new DateTime(end.Year, end.Month, 1).AddMonths(1))
         {
             var currentBudget = GetBudget(current, budgets);
+            decimal overlappingAmount;
             if (currentBudget.YearMonth == start.ToString("yyyyMM"))
             {
-                var overlappingAmount = (DateTime.DaysInMonth(start.Year, start.Month) - start.Day + 1) * GetDaysAmount(start, currentBudget.Amount);
-                totalAmount += overlappingAmount;
+                overlappingAmount = (DateTime.DaysInMonth(start.Year, start.Month) - start.Day + 1) * GetDaysAmount(start, currentBudget.Amount);
             }
             else if (currentBudget.YearMonth == end.ToString("yyyyMM"))
             {
-                var overlappingAmount = end.Day * (GetDaysAmount(end, currentBudget.Amount));
-                totalAmount += overlappingAmount;
+                overlappingAmount = end.Day * (GetDaysAmount(end, currentBudget.Amount));
             }
             else
             {
-                var overlappingAmount = currentBudget.Amount;
-                totalAmount += overlappingAmount;
+                overlappingAmount = currentBudget.Amount;
             }
+
+            totalAmount += overlappingAmount;
 
             current = current.AddMonths(1);
         }
