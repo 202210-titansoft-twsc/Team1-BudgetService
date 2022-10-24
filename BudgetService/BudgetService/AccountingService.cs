@@ -43,19 +43,16 @@ public class AccountingService
                 {
                     overlappingEnd = currentBudget.LastDay();
                     overlappingStart = start;
-                    // overlappingDays = (overlappingEnd - overlappingStart).Days + 1;
                 }
                 else if (currentBudget.YearMonth == end.ToString("yyyyMM"))
                 {
                     overlappingEnd = end;
                     overlappingStart = currentBudget.FirstDay();
-                    // overlappingDays = (overlappingEnd - overlappingStart).Days + 1;
                 }
                 else
                 {
                     overlappingEnd = currentBudget.LastDay();
                     overlappingStart = currentBudget.FirstDay();
-                    // overlappingDays = (overlappingEnd - overlappingStart).Days + 1;
                 }
 
                 var overlappingDays = (overlappingEnd - overlappingStart).Days + 1;
